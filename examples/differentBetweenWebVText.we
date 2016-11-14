@@ -1,0 +1,41 @@
+<template>
+    <div><!-- web不支持onclick这样的事件-->
+        <web id = "webView" class="webBgStyle" onclick="loadURL"></web>
+        <text id = "text" class="textBgStyle" onclick="loadURL"></text>
+    </div>
+</template>
+
+<style>
+    .webBgStyle
+    {
+        width:400;
+        height: 600;
+        background-color: #999900;
+    }
+
+    .textBgStyle
+    {
+        width:400;
+        height: 600;
+        background-color: #009900;
+    }
+</style>
+
+<script>
+    module.exports = {
+        data: {
+
+        },
+
+        methods: {
+
+            loadURL: function (e) {
+                debugger;
+                console.log("loadURL");
+                this.$el("webView").src = "https://m.taobao.com";
+                alert("loadURL")
+            }
+
+        }
+    }
+</script>

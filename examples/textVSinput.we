@@ -1,0 +1,45 @@
+<template>
+    <div style="flex:10">
+        <div class="textStyle">
+            <input type="url"  autofocus="true"  placeholder="..."  value="http://alibaba.github.io/weex/" >
+            </input>
+        </div>
+        <div class="webBgStyle">
+            <web id = "webView"; onpagestart="loadURL"></web>
+        </div>
+    </div>
+</template>
+
+<style>
+    .webBgStyle
+    {
+        width:400;
+        height: 100;
+        background-color: #999900;
+        border-color: #009900;
+    }
+
+    .textStyle
+    {
+        width:400;
+        height: 100;
+    }
+</style>
+
+<script>
+    module.exports = {
+        data: {
+
+        },
+
+        methods: {
+
+            loadURL: function (e) {
+                debugger;
+                console.log("loadURL");
+                this.$el("webView").src = "https://m.taobao.com";
+            }
+
+        }
+    }
+</script>

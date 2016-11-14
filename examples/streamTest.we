@@ -1,0 +1,27 @@
+<template>
+    <div>
+        <text onclick="startStream">click here to start stream</text>
+    </div>
+</template>
+
+<script>
+    module.exports = {
+        methods: {
+            startStream:function()
+            {
+                var stream_module = require('@weex-module/stream');
+                stream_module.fetch({
+                  method: 'GET',
+                  url: "http://httpbin.org/get",
+                  type:'json'
+                }, function(response) {
+                  //finished response
+                  console.log("all received:",response);
+                },function(response){
+                  //progress response
+                  console.log("current bytes received:",response.length);
+                });
+            }
+        }
+    }
+</script>

@@ -1,0 +1,100 @@
+<template>
+    <div class = "calculatorBg">
+        <text class="resultShow" id="result">{{result}}</text>
+        <div style="flex-direction: row">
+            <div class="columnStyle" style="margin-left: 50;">
+                <text class="button" value="1" onclick="inputNumbOrSymbol"></text>
+                <text class="button" value="4" onclick="inputNumbOrSymbol"></text>
+                <text class="button" value="7" onclick="inputNumbOrSymbol"></text>
+                <text class="button" value="0" onclick="inputNumbOrSymbol"></text>
+            </div>
+            <div class="columnStyle" >
+                <text class="button" value="2" onclick="inputNumbOrSymbol"></text>
+                <text class="button" value="5" onclick="inputNumbOrSymbol"></text>
+                <text class="button" value="8" onclick="inputNumbOrSymbol"></text>
+                <text class="button" value="." onclick="inputNumbOrSymbol"></text>
+            </div>
+            <div class="columnStyle">
+                <text class="button" value="3" onclick="inputNumbOrSymbol"></text>
+                <text class="button" value="6" onclick="inputNumbOrSymbol"></text>
+                <text class="button" value="9" onclick="inputNumbOrSymbol"></text>
+                <text class="button" value="AC" onclick="clear"></text>
+            </div>
+            <div class="columnStyle">
+                <text class="button" value="+" onclick="inputNumbOrSymbol"></text>
+                <text class="button" value="-" onclick="inputNumbOrSymbol"></text>
+                <text class="button" value="*" onclick="inputNumbOrSymbol"></text>
+                <text class="button" value="=" onclick="calculator"></text>
+            </div>
+        </div>
+    </div>
+</template>
+
+<style>
+    .calculatorBg {
+        background-color: #2C2C2C;
+        border-width:5;
+        border-color: #5e5e5e;
+        width: 600;
+        height: 400;
+        margin-top: 100;
+        margin-left: 50;
+    }
+    .button {
+        width:100;
+        height: 60;
+        background-color: #D5D6D8;
+        text-align: center;
+        padding: 8;
+        margin: 5;
+        flex:1;
+    }
+    .resultShow {
+        background-color: white;
+        text-align: right;
+        padding:10;
+        color: black;
+        font-size: 14;
+        margin-left: 50;
+        margin-top: 10;
+        width: 500;
+        height: 50;
+    }
+    .columnStyle {
+        flex-direction: column;
+        width:100;
+        height:220;
+        margin: 15;
+    }
+</style>
+
+<script>
+    module.exports = {
+        data: {
+            result:""
+        },
+
+        methods: {
+
+            inputNumbOrSymbol: function (numbOrSymbol) {
+                debugger;
+                var value = numbOrSymbol.target.attr["value"];
+                if(this.result == "0")
+                {
+                    this.result = value;
+                }else{
+                    this.result += value;
+                }
+            },
+
+            calculator: function (e) {
+                this.result = eval(this.result);
+            },
+
+            clear: function () {
+                this.result = "0";
+            }
+
+        }
+    }
+</script>

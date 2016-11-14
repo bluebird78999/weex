@@ -14,6 +14,12 @@
 
         // common
         {name: 'hello', title: 'Hello World'},
+        {name: 'browser', title: 'browser test'},
+        {name: 'streamTest', title: 'stream test'},
+        {name: 'mytest', title: 'new my test'},
+        {name: 'navigatorDemoModify', title: 'navigator-demo-modify'},
+        {name: 'calculator', title: 'calculator'},
+        {name: 'calculator2', title: 'calculator2'},
         {name: 'syntax/index', title: 'More Syntax'},
         {name: 'style/index', title: 'Common Style'},
         {name: 'animation', title: 'Animation'},
@@ -41,7 +47,7 @@
         {name: 'module/modal', title: 'Modal'},
         {name: 'module/stream-demo', title: 'Stream'},
         {name: 'module/storage-demo',title:'Storage'},
-        {name: 'module/clipboard', title: 'Clipboard'},
+        // {name: 'module/clipboard', title: 'Clipboard'}, // 0.8 , developing
 
         // showcase
         {name: 'showcase/new-fashion/index', title: 'Activity'},

@@ -1,0 +1,20 @@
+<!-- somepath/foo-list.we -->
+<template>
+    <div>
+        <text>{{description}}</text>
+        <foo repeat="{{list}}" title="{{title}}" image="{{image}}"></foo>
+    </div>
+</template>
+<script>
+    module.exports = {
+        data: {
+            description: 'this is foolist',
+            // If no keys written here. There will be no data binding effect
+            // from parent attribute "list".
+            list: [
+                {title:"foo 1",image:"https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=991890567,3530662074&fm=58&s=0FF6E812C5A54D035854BAF400000035"},
+                {title:"foo 2",image:"https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=991890567,3530662074&fm=58&s=0FF6E812C5A54D035854BAF400000035"}
+            ]
+        }
+    }
+</script>

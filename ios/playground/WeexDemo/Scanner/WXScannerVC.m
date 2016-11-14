@@ -36,37 +36,38 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     [self setupNaviBar];
     
-    self.session = [[AVCaptureSession alloc]init];
-    [_session setSessionPreset:AVCaptureSessionPresetHigh];
-    AVCaptureDevice * device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    AVCaptureDeviceInput * input = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
-    AVCaptureMetadataOutput * output = [[AVCaptureMetadataOutput alloc]init];
-    if (output && input && device) {
-        [output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
-        [_session addInput:input];
-        [_session addOutput:output];
-        output.metadataObjectTypes=@[AVMetadataObjectTypeQRCode,AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code];
-    }
-    
-    _captureLayer = [AVCaptureVideoPreviewLayer layerWithSession:_session];
-    _captureLayer.videoGravity=AVLayerVideoGravityResizeAspectFill;
-    _captureLayer.frame=self.view.layer.bounds;
+//    self.session = [[AVCaptureSession alloc]init];
+//    [_session setSessionPreset:AVCaptureSessionPresetHigh];
+//    AVCaptureDevice * device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+//    AVCaptureDeviceInput * input = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
+//    AVCaptureMetadataOutput * output = [[AVCaptureMetadataOutput alloc]init];
+//    if (output && input && device) {
+//        [output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
+//        [_session addInput:input];
+//        [_session addOutput:output];
+//        output.metadataObjectTypes=@[AVMetadataObjectTypeQRCode,AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code];
+//    }
+//    
+//    _captureLayer = [AVCaptureVideoPreviewLayer layerWithSession:_session];
+//    _captureLayer.videoGravity=AVLayerVideoGravityResizeAspectFill;
+//    _captureLayer.frame=self.view.layer.bounds;
     
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self.view.layer addSublayer:_captureLayer];
-    [_session startRunning];
+//    [self.view.layer addSublayer:_captureLayer];
+//    [_session startRunning];
+    [self openURL:@"http://30.10.211.236:8088/devtool_fake.html?_wx_devtool=ws://30.10.211.236:8088/debugProxy/native"];
 }
 
 - (void) viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
     
-    [_captureLayer removeFromSuperlayer];
-    [_session stopRunning];
+//    [_captureLayer removeFromSuperlayer];
+//    [_session stopRunning];
 }
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
