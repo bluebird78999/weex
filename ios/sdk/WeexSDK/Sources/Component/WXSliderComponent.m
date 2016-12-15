@@ -542,7 +542,7 @@
         CGFloat XDeviationPercent = (XDeviation / width);
         if (ABS(XDeviationPercent - _lastXDeviationPercent) >= _scrollAccuracy) {
             _lastXDeviationPercent = XDeviationPercent;
-            [self fireEvent:@"scroll" params:@{@"XDeviationPercent":@(XDeviationPercent)} domChanges:nil];
+            [self fireEvent:@"scroll" params:@{@"XDeviationPercent":[NSNumber numberWithFloat:XDeviationPercent]} domChanges:nil];
         }
     }
 }
