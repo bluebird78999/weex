@@ -1384,7 +1384,8 @@ NSComparisonResult sliderNeighorCompareViewDepth(UIView *view1, UIView *view2, W
 #define DEFAULT_CURRENT_ITEM_SCALE 0.9
 #define DEFAULT_NEIGHBOR_ALPHA 0.6
 #define DEFAULT_ANIMATION_DURATION 0.3
-#define DEFAULT_NEIGHBOR_TRANSLATION_TX 45
+#define DEFAULT_NEIGHBOR_TRANSLATION_TX -1
+
 
 @implementation WXSliderNeighborComponent
 
@@ -1728,13 +1729,17 @@ NSComparisonResult sliderNeighorCompareViewDepth(UIView *view1, UIView *view2, W
             }
             currentView.transform = transfrom;
             transfrom = CGAffineTransformIdentity;
-            
             if (fabs(strongSelf->neighborScale) <= CGFLOAT_MIN) {
                 strongSelf->neighborScale = DEFAULT_NEIGHBOR_SCALE;
             }
             transfrom = CGAffineTransformConcat(transfrom, CGAffineTransformMakeScale(strongSelf->neighborScale, strongSelf->neighborScale));
-            nextView.transform = CGAffineTransformConcat(transfrom,  CGAffineTransformMakeTranslation(-strongSelf->neighborTranslationTx, 0));
-            lastView.transform = CGAffineTransformConcat(transfrom,  CGAffineTransformMakeTranslation(strongSelf->neighborTranslationTx, 0));
+            CGFloat tx = strongSelf->neighborTranslationTx;
+            if (tx == DEFAULT_NEIGHBOR_TRANSLATION_TX) {
+                //default tx value. recommend not to use default tx value
+                tx = 0.5 * _itemRect.size.width * ((1 - self->neighborScale) + 0.1) - [WXConvert WXPixelType:@(25)];
+            }
+            nextView.transform = CGAffineTransformConcat(transfrom,  CGAffineTransformMakeTranslation(-tx, 0));
+            lastView.transform = CGAffineTransformConcat(transfrom,  CGAffineTransformMakeTranslation(tx, 0));
             lastView.alpha = strongSelf->neighborAlpha;
             nextView.alpha = strongSelf->neighborAlpha;
         }
