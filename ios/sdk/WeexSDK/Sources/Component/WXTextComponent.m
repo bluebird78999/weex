@@ -311,10 +311,16 @@ do {\
     
     // set font
     if (!_fontFamily) {
-        if ([[UIDevice currentDevice].systemVersion floatValue] >= 9.0) {
-            _fontFamily = @".SFUIText";//San Francisco font is systemFont from iOS 9.0
-        } else {
-            _fontFamily = @"HelveticaNeue";//HelveticaNeue font is systemFont before iOS 9.0
+        NSString *regex = @".*[\\u4e00-\\u9faf].*";//Has Simplified Chinese char
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
+        if ([pred evaluateWithObject:string]) {
+             if ([[UIDevice currentDevice].systemVersion floatValue] < 9.0) {
+             //“Heiti SC” font is "[UIFont systemFontOfSize:]" for Simplified Chinese before iOS 9.0.
+                _fontFamily = @"Heiti SC";
+             } else {
+             //“PingFang SC” font is "[UIFont systemFontOfSize:]" for Simplified Chinese from iOS 9.0.
+                _fontFamily = @"PingFang SC";
+             }
         }
     }
     UIFont *font = [WXUtility fontWithSize:_fontSize textWeight:_fontWeight textStyle:_fontStyle fontFamily:_fontFamily];
