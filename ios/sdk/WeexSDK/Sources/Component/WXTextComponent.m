@@ -310,6 +310,13 @@ do {\
     }
     
     // set font
+    if (!_fontFamily) {
+        if ([[UIDevice currentDevice].systemVersion floatValue] >= 9.0) {
+            _fontFamily = @".SFUIText";//San Francisco font is systemFont from iOS 9.0
+        } else {
+            _fontFamily = @"HelveticaNeue";//HelveticaNeue font is systemFont before iOS 9.0
+        }
+    }
     UIFont *font = [WXUtility fontWithSize:_fontSize textWeight:_fontWeight textStyle:_fontStyle fontFamily:_fontFamily];
     if (font) {
         [attributedString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, string.length)];
