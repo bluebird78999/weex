@@ -12,7 +12,7 @@ It supports all kinds of weex components as its slides, especially the `indicat
 
 ## Attributes
 
-* `auto-play`: <boolean> `true` | `false`. This value determines whether the `slider-neighbor`  component play automatically after the page rendering finished. The default value is `false`.
+* `auto-play`: <boolean> `true` | `false`. This value determines whether the `slider-neighbor`  component plays automatically after the page rendering finished. The default value is `false`.
 * `interval`: <number> millisecond. This value determines time interval for each page displayed in `slider-neighbor` component.The default value is `3000`.
 * `index`: <number> . This value determines the index of current shown slide. The default value is `0`.
 * `currentItemScale`: <float> . This value determines the scale of current shown slide. The default value is `0.9`.
