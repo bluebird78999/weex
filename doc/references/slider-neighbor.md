@@ -1,25 +1,25 @@
 # Slider-neighbor
 
 mx_time
-0.9
+0.11
 mx_time
 
-The <slider-neighbor> component provide similar features with the <slider> component. The <slider-neighbor> component is used to  show slides (mostly as pictures) one page by another with anmiations. 
+The <slider-neighbor> component provides similar features with the <slider> component. The <slider-neighbor> component is used to  show slides (mostly as pictures) one page by another with animation. 
 
 ## Child Components
 
-It supports all kinds of weex components as its slides, especially the `indicator` component which can be used only as a child component of `slider`  and a child component of `slider-neighbor`.
+It supports all kinds of weex components as its slides, especially the `indicator` component which only can be used as a child component of `slider`  and a child component of `slider-neighbor`.
 
 ## Attributes
 
-* `auto-play`: <boolean> `true` | `false`. This value determines whether the slides plays automatically after the page rendering finished. The default value is `false`.
-* `interval`: <number> millisecond. This value determines time interval for each page displayed in slider.The default value is `3000`.
+* `auto-play`: <boolean> `true` | `false`. This value determines whether the `slider-neighbor`  component play automatically after the page rendering finished. The default value is `false`.
+* `interval`: <number> millisecond. This value determines time interval for each page displayed in `slider-neighbor` component.The default value is `3000`.
 * `index`: <number> . This value determines the index of current shown slide. The default value is `0`.
 * `currentItemScale`: <float> . This value determines the scale of current shown slide. The default value is `0.9`.
 * `neighborScale`: <float> . This value determines the scale of neighbor shown slide. The default value is `0.8`.
-* `neighborSpace`: <float> . This value determines the space between neighbor shown slide and current shown slide. The default value is `25`.
-* `neighborAlpha`: <float> . This value determines the alpha of neighbor shown slide when slide the slides. The default value is `0.6`.
-* `scrollable`: <boolean> . This value determines whether the slides is scrollable. The default value is `True`.
+* `neighborSpace`: <float> . This value determines the space between neighbor shown slides and current shown slide. The default value is `25`.
+* `neighborAlpha`: <float> . This value determines the alpha of neighbor shown slides when slide the slides. The default value is `0.6`.
+* `scrollable`: <boolean> . This value determines whether the `slider-neighbor` is scrollable. The default value is `True`.
 
 Other attributes please check out the [common attributes](https://weex-project.io/doc/references/common-attrs.html).
 
@@ -35,7 +35,7 @@ common styles: check out [common styles for components](http://alibaba.github.io
 
 ## Events
 
-- `change`: triggerd when the slide’s index is changed. The event object contains the attribute of `index`, which is the index number of the currently shown slide.
+- `change`: triggerd when the index of `slider-neighbor` is changed. The event object contains the attribute of `index`, which is the index number of the currently shown slide.
 
 **common events**: check out the [common events](https://weex-project.io/references/references/common-event.html)
 

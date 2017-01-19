@@ -35,11 +35,11 @@ mx_time
 
 ## 事件
 
-- `change`: 当轮播索引改变时，触发该事件。
+- `change`: 当`slider-neighbor`索引改变时，触发该事件。
 
   事件中 event 对象属性：
 
-  - `index`：展示的图片索引
+  - `index`：代表当前显示幻灯片的索引。
 
 - 通用事件
 
