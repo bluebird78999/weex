@@ -203,6 +203,9 @@ WX_EXPORT_METHOD(@selector(resetLoadmore))
     if ([eventName isEqualToString:@"loadmore"]) {
         _listenLoadMore = NO;
     }
+    if ([eventName isEqualToString:@"scroll"]) {
+        _scrollEvent = NO;
+    }
 }
 
 #pragma mark WXScrollerProtocol
